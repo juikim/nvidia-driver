@@ -89,7 +89,7 @@
 #include <drm/drm_atomic_helper.h>
 #endif
 
-static struct nv_drm_device *nv_dev_list = NULL;
+static struct nv_drm_device *dev_list = NULL;
 
 static const char* nv_get_input_colorspace_name(
     enum NvKmsInputColorSpace colorSpace)
@@ -1524,8 +1524,8 @@ void nv_drm_register_drm_device(const nv_gpu_info_t *gpu_info)
 
     /* Add NVIDIA-DRM device into list */
 
-    nv_dev->next = nv_dev_list;
-    nv_dev_list = nv_dev;
+    nv_dev->next = dev_list;
+    dev_list = nv_dev;
 
     return; /* Success */
 
@@ -1593,16 +1593,15 @@ struct pci_dev *nv_lkpi_pci_devs[NV_MAX_DEVICES];
  */
 void nv_drm_remove_devices(void)
 {
-    while (nv_dev_list != NULL) {
-        struct nv_drm_device *next = nv_dev_list->next;
+    while (dev_list != NULL) {
+        struct nv_drm_device *next = dev_list->next;
 
-        /* check if we should free the drm_device->dev ?? aka the pci_dev from lkpi */
-        drm_dev_unregister(nv_dev_list->dev);
-        nv_drm_dev_free(nv_dev_list->dev);
+        drm_dev_unregister(dev_list->dev);
+        nv_drm_dev_free(dev_list->dev);
 
-        nv_drm_free(nv_dev_list);
+        nv_drm_free(dev_list);
 
-        nv_dev_list = next;
+        dev_list = next;
     }
 }
 

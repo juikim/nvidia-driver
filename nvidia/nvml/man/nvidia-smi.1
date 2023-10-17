@@ -1,4 +1,4 @@
-.TH "nvidia\-smi" "1" "2023/8/1" "nvidia\-smi 535.98" "NVIDIA"
+.TH "nvidia\-smi" "1" "2023/9/12" "nvidia\-smi 535.113" "NVIDIA"
 
 
 .SH "NAME"
@@ -286,7 +286,7 @@ Supported on Maxwell-based GeForce and from the Kepler+ family in Tesla/Quadro/T
 Requires root.
 
 .SS "\-lmcd, \-\-lock\-memory\-clocks\-deferred"
-Specifies the memory clock that defines the closest desired Memory Clock in MHz. The memory clock takes effect the next time the driver is loaded. This can be done by unloading and reloading the  kernel module.
+Specifies the memory clock that defines the closest desired Memory Clock in MHz. The memory clock takes effect the next time the GPU is initialized. This can be guaranteed by unloading and reloading the kernel module.
 Requires root.
 
 .SS "\-rmcd, \-\-reset\-memory\-clocks\-deferred"
@@ -719,6 +719,11 @@ On-board frame buffer memory information.
 Reported total memory is affected by ECC state.
 If ECC is enabled the total available memory is decreased by several percent, due to the requisite parity bits.
 The driver may also reserve a small amount of memory for internal use, even without active work on the GPU.
+On systems where GPUs are NUMA nodes, the accuracy of FB memory utilization provided by nvidia-smi depends on the memory accounting of the operating system.
+This is because FB memory is managed by the operating system instead of the NVIDIA GPU driver.
+Typically, pages allocated from FB memory are not released even after the process terminates to enhance performance.
+In scenarios where the operating system is under memory pressure, it may resort to utilizing FB memory.
+Such actions can result in discrepancies in the accuracy of memory reporting.
 For all products.
 
 .TP 15
@@ -2094,6 +2099,18 @@ Query power hint with graphics clock at 1350MHz, memory clock at 1215MHz, temper
 .PP 1
 
   === Known Issues ===
+.PP 1
+
+  * On systems where GPUs are NUMA nodes, the accuracy of FB memory utilization provided by nvidia-smi depends on the memory accounting of the operating system.
+.PP 1
+
+    This is because FB memory is managed by the operating system instead of the NVIDIA GPU driver.
+.PP 1
+
+    Typically, pages allocated from FB memory are not released even after the process terminates to enhance performance. In scenarios where
+.PP 1
+
+    the operating system is under memory pressure, it may resort to utilizing FB memory. Such actions can result in discrepancies in the accuracy of memory reporting.
 .PP 1
 
   * On Linux GPU Reset can't be triggered when there is pending GOM change.

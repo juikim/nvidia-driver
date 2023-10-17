@@ -11,10 +11,14 @@ desktop is fully usable on Nvidia hardware when running with this driver. Waylan
 compositors primarily use the DRM-KMS api for advanced display features and
 for importing GPU buffers from clients without performing a copy.
 
-Please note that this is currently in the testing stage. While the changes are
-very stable and can be used to comfortably run a Wayland desktop, more testing
-is needed before this starts to make its way into the ports tree. Please help
-by giving it a go and reporting any issues you may find!
+Development in this repository goes towards two versions in the FreeBSD ports tree: 
+
+* [graphics/nvidia-drm-510-kmod](https://www.freshports.org/graphics/nvidia-drm-510-kmod/) compatible with drm.ko 5.10
+* [graphics/nvidia-drm-515-kmod](https://www.freshports.org/graphics/nvidia-drm-515-kmod/) compatible with drm.ko 5.15.
+
+The **meta port**, which automatically installs a recommended version of the driver, will suit most use cases:
+
+* [graphics/nvidia-drm-kmod](https://www.freshports.org/graphics/nvidia-drm-kmod/).
 
 ## Branch Structure
 
@@ -86,8 +90,11 @@ known issues that are currently not supported:
   I have no plans to fix this for now.
 
 ## Other Relevant Links
-* https://badland.io/nvidia-drm.md
-* https://badland.io/nvidia.md
+
+* [Porting nvidia-drm.ko to FreeBSD](https://badland.io/nvidia-drm.md) (2019-08-01)
+* [Anatomy of the FreeBSD NVIDIA driver](https://badland.io/nvidia.md) (2019-08-01)
+* [Announcing nvidia-drm port and Call for Testing](https://badland.io/announcing_nvidia_drm.md) (2022-11-13)
+* [Configuring PRIME in 2023 (on FreeBSD)](https://badland.io/prime-configuration.md) (2023-04-13)
 
 ## How to update this port
 

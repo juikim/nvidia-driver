@@ -1,7 +1,7 @@
 NVIDIA_ROOT=	${.CURDIR}/../../..
 
 LIB=		vdpau_nvidia
-SHLIB_VERSION=	535.98
+SHLIB_VERSION=	535.113.01
 SHLIB_NAME=	lib${LIB}.so.${SHLIB_VERSION}
 SHLIB_LINK=	lib${LIB}.so.1
 BASELIBDIR=     /compat/linux/usr/lib

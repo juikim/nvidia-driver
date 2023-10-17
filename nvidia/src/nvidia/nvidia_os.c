@@ -1400,6 +1400,16 @@ void NV_API_CALL os_nv_cap_close_fd
 {
 }
 
+NV_STATUS NV_API_CALL os_get_numa_node_memory_usage
+(
+    NvS32 node_id,
+    NvU64 *free_memory_bytes,
+    NvU64 *total_memory_bytes
+)
+{
+    return NV_ERR_NOT_SUPPORTED;
+}
+
 NV_STATUS NV_API_CALL os_numa_add_gpu_memory
 (
     void *handle,
@@ -1429,3 +1439,18 @@ NV_STATUS NV_API_CALL os_offline_page_at_address
 {
     return NV_ERR_NOT_SUPPORTED;
 }
+
+void* NV_API_CALL os_get_pid_info(void)
+{
+    return NULL;
+}
+
+void NV_API_CALL os_put_pid_info(void *pid_info)
+{
+}
+
+NV_STATUS NV_API_CALL os_find_ns_pid(void *pid_info, NvU32 *ns_pid)
+{
+    return NV_ERR_NOT_SUPPORTED;
+}
+

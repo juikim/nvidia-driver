@@ -55,7 +55,7 @@ usage() {
     echo ""
 }
 
-NVIDIA_BUG_REPORT_CHANGE='$Change: 32208192 $'
+NVIDIA_BUG_REPORT_CHANGE='$Change: 33290498 $'
 NVIDIA_BUG_REPORT_VERSION=`echo "$NVIDIA_BUG_REPORT_CHANGE" | tr -c -d "[:digit:]"`
 
 # Set the default filename so that it won't be empty in the usage message

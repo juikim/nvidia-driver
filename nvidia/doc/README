@@ -1,8 +1,8 @@
 NVIDIA Accelerated FreeBSD Graphics Driver README and Installation Guide
 
     NVIDIA Corporation
-    Last Updated: Tue Aug  1 21:10:30 UTC 2023
-    Most Recent Driver Version: 535.98
+    Last Updated: Tue Sep 12 19:10:43 UTC 2023
+    Most Recent Driver Version: 535.113.01
 
 Published by
 NVIDIA Corporation
@@ -244,8 +244,8 @@ components.
     nvidia-xconfig.1                      /usr/local/man/man1
     nvidia-settings                       /usr/local/bin
     nvidia-settings.1                     /usr/local/man/man1
-    libnvidia-gtk2.so.535.98         /usr/local/lib
-    libnvidia-gtk3.so.535.98         /usr/local/lib
+    libnvidia-gtk2.so.535.113.01         /usr/local/lib
+    libnvidia-gtk3.so.535.113.01         /usr/local/lib
     nvidia0                               /dev
     nvidia1                               /dev
     nvidia2                               /dev
@@ -292,21 +292,21 @@ components.
     libvdpau_nvidia.so.1                  /usr/local/lib32/vdpau
     libGL.so.1                            /compat/linux/usr/lib
     libEGL.so.1                           /compat/linux/usr/lib
-    libEGL.so.535.98                 /compat/linux/usr/lib
+    libEGL.so.535.113.01                 /compat/linux/usr/lib
     libEGL_nvidia.so.0                    /compat/linux/usr/lib
     libGLdispatch.so.0                    /compat/linux/usr/lib
     libGLESv1_CM.so.1                     /compat/linux/usr/lib
-    libGLESv1_CM.so.535.98           /compat/linux/usr/lib
+    libGLESv1_CM.so.535.113.01           /compat/linux/usr/lib
     libGLESv2.so.2                        /compat/linux/usr/lib
-    libGLESv2.so.535.98              /compat/linux/usr/lib
+    libGLESv2.so.535.113.01              /compat/linux/usr/lib
     libOpenGL.so.0                        /compat/linux/usr/lib
-    libnvidia-tls.so.535.98          /compat/linux/usr/lib
-    libnvidia-eglcore.so.535.98      /compat/linux/usr/lib
-    libnvidia-glcore.so.535.98       /compat/linux/usr/lib
-    libnvidia-glsi.so.535.98         /compat/linux/usr/lib
-    libnvidia-glvkspirv.so.535.98    /compat/linux/usr/lib
+    libnvidia-tls.so.535.113.01          /compat/linux/usr/lib
+    libnvidia-eglcore.so.535.113.01      /compat/linux/usr/lib
+    libnvidia-glcore.so.535.113.01       /compat/linux/usr/lib
+    libnvidia-glsi.so.535.113.01         /compat/linux/usr/lib
+    libnvidia-glvkspirv.so.535.113.01    /compat/linux/usr/lib
     libvdpau_nvidia.so.1                  /compat/linux/usr/lib/vdpau
-    libvdpau_nvidia.so.535.98        /compat/linux/usr/lib/vdpau
+    libvdpau_nvidia.so.535.113.01        /compat/linux/usr/lib/vdpau
 
 
 ______________________________________________________________________________
@@ -911,7 +911,7 @@ A. Due to differences between the gtk+-2.x ports packages included with
    system, you can build the nvidia-installer utility from source to solve
    this problem.
 
-   Download nvidia-settings-535.98.tar.bz2 from
+   Download nvidia-settings-535.113.01.tar.bz2 from
    https://download.nvidia.com/XFree86/nvidia-settings You can then extract,
    build and install it (to '/usr/local/bin') with:
    
@@ -1277,7 +1277,7 @@ NV-CONTROL versions 1.8 and 1.9
 
     NVIDIA recommends that NV-CONTROL client applications relink with version
     1.10 or later of the NV-CONTROL client library (libXNVCtrl.a, in the
-    nvidia-settings-535.98.tar.bz2 tarball). The version of the client
+    nvidia-settings-535.113.01.tar.bz2 tarball). The version of the client
     library can be determined by checking the NV_CONTROL_MAJOR and
     NV_CONTROL_MINOR definitions in the accompanying nv_control.h.
 
@@ -4965,7 +4965,7 @@ For the most complete and accurate listing of supported GPUs, please see the
 Supported Products List, available from the NVIDIA FreeBSD x86_64 Graphics
 Driver download page. Please go to http://www.nvidia.com/object/unix.html,
 follow the Archive link under the FreeBSD x86_64 heading, follow the link for
-the 535.98 driver, and then go to the Supported Products List.
+the 535.113.01 driver, and then go to the Supported Products List.
 
 For an explanation of the VDPAU features column, please refer to the section
 called "VdpDecoder" of Appendix F.
@@ -5759,6 +5759,7 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA PG506-232                                 20B6 10DE 1492  J
  NVIDIA A30                                       20B7 10DE 1532  J
  NVIDIA A30                                       20B7 10DE 1804  J
+ NVIDIA A800-SXM4-40GB                            20BD 10DE 17F4  J
  NVIDIA A100-PCIE-40GB                            20F1 10DE 145F  J
  NVIDIA A800-SXM4-80GB                            20F3 10DE 179B  J
  NVIDIA A800-SXM4-80GB                            20F3 10DE 179C  J
@@ -5770,6 +5771,10 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA A800-SXM4-80GB                            20F3 10DE 17A2  J
  NVIDIA A800 80GB PCIe                            20F5 10DE 1799  J
  NVIDIA A800 80GB PCIe LC                         20F5 10DE 179A  J
+ NVIDIA A800 40GB Active                          20F6 1028 180A  J
+ NVIDIA A800 40GB Active                          20F6 103C 180A  J
+ NVIDIA A800 40GB Active                          20F6 10DE 180A  J
+ NVIDIA A800 40GB Active                          20F6 17AA 180A  J
  NVIDIA GeForce GTX 1660 Ti                       2182            J
  NVIDIA GeForce GTX 1660                          2184            J
  NVIDIA GeForce GTX 1650 SUPER                    2187            J
@@ -5829,6 +5834,7 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA A10                                       2236 10DE 1482  K
  NVIDIA A10G                                      2237 10DE 152F  K
  NVIDIA A10M                                      2238 10DE 1677  K
+ NVIDIA H100 NVL                                  2321 10DE 1839  K
  NVIDIA H800 PCIe                                 2322 10DE 17A4  K
  NVIDIA H800                                      2324 10DE 17A6  K
  NVIDIA H800                                      2324 10DE 17A8  K
@@ -5836,6 +5842,7 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA H100 80GB HBM3                            2330 10DE 16C1  K
  NVIDIA H100 PCIe                                 2331 10DE 1626  K
  NVIDIA H100                                      2339 10DE 17FC  K
+ NVIDIA H800 NVL                                  233A 10DE 183A  K
  NVIDIA GeForce RTX 3060 Ti                       2414            K
  NVIDIA GeForce RTX 3080 Ti Laptop GPU            2420            K
  NVIDIA RTX A5500 Laptop GPU                      2438            K
@@ -5930,10 +5937,13 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA RTX 5000 Ada Generation                   26B2 17AA 17FA  K
  NVIDIA L40                                       26B5 10DE 169D  K
  NVIDIA L40                                       26B5 10DE 17DA  K
+ NVIDIA L40S                                      26B9 10DE 1851  K
+ NVIDIA L40S                                      26B9 10DE 18CF  K
  NVIDIA GeForce RTX 4080                          2704            K
  NVIDIA GeForce RTX 4090 Laptop GPU               2717            K
  NVIDIA RTX 5000 Ada Generation Laptop GPU        2730            K
  NVIDIA GeForce RTX 4090 Laptop GPU               2757            K
+ NVIDIA RTX 5000 Ada Generation Embedded GPU      2770            K
  NVIDIA GeForce RTX 4070 Ti                       2782            K
  NVIDIA GeForce RTX 4070                          2786            K
  NVIDIA GeForce RTX 4080 Laptop GPU               27A0            K
@@ -5941,6 +5951,10 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA RTX 4000 SFF Ada Generation               27B0 103C 16FA  K
  NVIDIA RTX 4000 SFF Ada Generation               27B0 10DE 16FA  K
  NVIDIA RTX 4000 SFF Ada Generation               27B0 17AA 16FA  K
+ NVIDIA RTX 4500 Ada Generation                   27B1 1028 180C  K
+ NVIDIA RTX 4500 Ada Generation                   27B1 103C 180C  K
+ NVIDIA RTX 4500 Ada Generation                   27B1 10DE 180C  K
+ NVIDIA RTX 4500 Ada Generation                   27B1 17AA 180C  K
  NVIDIA RTX 4000 Ada Generation                   27B2 1028 181B  K
  NVIDIA RTX 4000 Ada Generation                   27B2 103C 181B  K
  NVIDIA RTX 4000 Ada Generation                   27B2 10DE 181B  K
@@ -5950,6 +5964,7 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA RTX 4000 Ada Generation Laptop GPU        27BA            K
  NVIDIA RTX 3500 Ada Generation Laptop GPU        27BB            K
  NVIDIA GeForce RTX 4080 Laptop GPU               27E0            K
+ NVIDIA RTX 3500 Ada Generation Embedded GPU      27FB            K
  NVIDIA GeForce RTX 4060 Ti                       2803            K
  NVIDIA GeForce RTX 4060 Ti                       2805            K
  NVIDIA GeForce RTX 4070 Laptop GPU               2820            K
@@ -5961,6 +5976,7 @@ A1. CURRENT NVIDIA GPUS
  NVIDIA RTX 2000 Ada Generation Laptop GPU        28B8            K
  NVIDIA GeForce RTX 4060 Laptop GPU               28E0            K
  NVIDIA GeForce RTX 4050 Laptop GPU               28E1            K
+ NVIDIA RTX 2000 Ada Generation Embedded GPU      28F8            K
 
 
 Below are the legacy GPUs that are no longer supported in the unified driver.
@@ -10008,7 +10024,7 @@ loaded by a process, the driver looks for files in the following search path:
 
    o '/etc/nvidia/nvidia-application-profiles-rc.d'
 
-   o '/usr/share/nvidia/nvidia-application-profiles-535.98-rc'
+   o '/usr/share/nvidia/nvidia-application-profiles-535.113.01-rc'
 
 By convention, the '*-rc.d' files are directories and the '*-rc' files are
 regular files, but the driver places no restrictions on file type, and any of

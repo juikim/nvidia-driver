@@ -1,7 +1,7 @@
 NVIDIA_ROOT=    ${.CURDIR}/../../..
 
 LIB=		nvidia-eglcore
-SHLIB_VERSION=	535.98
+SHLIB_VERSION=	535.113.01
 SHLIB_NAME=	lib${LIB}.so.${SHLIB_VERSION}
 SHLIB_NO_LINK=	1
 LIBDIR=		/compat/linux/usr/lib

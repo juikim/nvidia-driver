@@ -1,5 +1,9 @@
 ======== Release 535 Entries ========
 
+2023-08-22 version 535.104.05
+
+2023-08-08 version 535.98
+
 2023-07-18 version 535.86.05
 
     * Fixed a bug that caused excessive memory consumption when OpenGL and
@@ -87,6 +91,10 @@
       truncating.
 
 ======== Release 525 Entries ========
+
+    * Fixed a bug which could cause the screen to flicker.
+
+2023-06-26 version 525.125.06
 
 2023-05-09 version 525.116.04
 
