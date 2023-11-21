@@ -1,5 +1,5 @@
-# Application profiles for the NVIDIA FreeBSD graphics driver, version 535.113.01
-# Last modified: Tue Sep 12 19:10:43 UTC 2023
+# Application profiles for the NVIDIA FreeBSD graphics driver, version 535.129.03
+# Last modified: Thu Oct 19 18:27:11 UTC 2023
 # These profiles were provided by NVIDIA and should not be modified.  If you
 # wish to change the defaults provided here, you can override them by creating
 # custom rules in /etc/nvidia/nvidia-application-profiles-rc (which will apply
@@ -223,8 +223,43 @@
         { "pattern": "GRIDAutosport", "profile" : "IdleQueueOnSwapchainOOD" },
         { "pattern": "DawnOfWar3",  "profile" : "DisableHostVisibleVidmem" },
         { "pattern": "warsow.x86_64", "profile": "ForceGLXTrueColorVisual" },
-        { "pattern": { "feature":"commname", "matches": "F1_2020_dx12.ex" }, "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
-        { "pattern": { "feature":"commname", "matches": "F1_2021_dx12.ex" }, "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
-        { "pattern": { "feature":"commname", "matches": "F1_22.exe" },       "profile": "PromoteUncachedSysmemToHostVisibleMemory" }
+        { "pattern": { "feature":"cmdline", "matches": "F1_2020_dx12.exe" }, "profile": "PromoteUncachedSysmemToHostVisibleMemory" }, 
+        { "pattern": { "feature":"cmdline", "matches": "F1_2021_dx12.exe" }, "profile": "PromoteUncachedSysmemToHostVisibleMemory" }, 
+        { "pattern": { "feature":"cmdline", "matches": "F1_22.exe" },        "profile": "PromoteUncachedSysmemToHostVisibleMemory" }, 
+        { "pattern": { "feature":"cmdline", "matches": "crysis3.exe" },      "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "rome2.exe" },        "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "Ryse.exe" },         "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "sc2.exe" },          "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "Warhammer.exe" },    "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "WS.Main_Win64_final.exe" },     "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "Control_DX12.exe" },            "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "vermintide2.exe" },             "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "r5apex.exe" },                  "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "AshesEscalation_DX11.exe" },    "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "ac3sp.exe" },                   "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "ac4bfsp.exe" },                 "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "ACS.exe" },                     "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "BattleForge.exe" },             "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "bf1.exe" },                     "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "BioShockInfinite.exe" },        "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "Control_DX11.exe" },            "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "FortniteClient-Win64-Test.exe" },          "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "forza_x64_release.exe" },       "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "HellbladeGame.exe" },           "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "nioh.exe" },                    "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "EliteDangerous32.exe" },        "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "QuantumBreak.exe" },            "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "witch_DX11.exe" },              "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "VRMarkWorkload2.exe" },         "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "3DMarkTimeSpy.exe" },           "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "3DMarkPortRoyal.exe" },         "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "Minecraft.exe" },               "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "GearGame.exe" },                "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "hitman2.exe" },                 "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "riftbreaker_win_release.exe" }, "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "SOTTR.exe" },                   "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "StrangeBrigade_DX12.exe" },     "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "WoW.exe" },                     "profile": "PromoteUncachedSysmemToHostVisibleMemory" },
+        { "pattern": { "feature":"cmdline", "matches": "za4_dx12.exe" },                "profile": "PromoteUncachedSysmemToHostVisibleMemory" }
     ]
 }

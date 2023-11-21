@@ -14,7 +14,7 @@ include nvidia-sources.mk
 
 SRCS=		${NVIDIA_SOURCES}
 SRCS+=		acpi_if.h bus_if.h device_if.h opt_acpi.h pci_if.h vnode_if.h
-CFLAGS+=	-I. -I../common/inc -DNV_VERSION_STRING=\"535.113.01\"
+CFLAGS+=	-I. -I../common/inc -DNV_VERSION_STRING=\"535.129.03\"
 CFLAGS+=	-D__KERNEL__ -DNVRM  -Wno-unused-function -Wuninitialized -O2 -fno-strict-aliasing    -ffreestanding -mno-red-zone -mcmodel=kernel       -UDEBUG -U_DEBUG -DNDEBUG
 CFLAGS+=	-DNV_SPECTRE_V2=$(SPECTRE_V2_RETPOLINE)
 CFLAGS+=	-DNV_KERNEL_INTERFACE_LAYER

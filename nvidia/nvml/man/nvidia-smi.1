@@ -1,4 +1,4 @@
-.TH "nvidia\-smi" "1" "2023/9/12" "nvidia\-smi 535.113" "NVIDIA"
+.TH "nvidia\-smi" "1" "2023/10/19" "nvidia\-smi 535.129" "NVIDIA"
 
 
 .SH "NAME"
@@ -577,6 +577,17 @@ Version for the ECC recording data.
 .B "Power Object"
 Version for the power management data.
 
+.SS "Inforom BBX Object Flush"
+Information about flushing of the blackbox data to the inforom storage.
+
+.TP 15
+.B "Latest Timestamp"
+The timestamp of the latest flush of the BBX Object during the current run.
+
+.TP 15
+.B "Latest Duration"
+The duration of the latest flush of the BBX Object during the current run.
+
 .SS "GPU Operation Mode"
 GOM allows to reduce power usage and optimize GPU throughput by disabling GPU features.
 
@@ -917,20 +928,50 @@ Not all products support all reading types.
 In particular, products in module form factors that rely on case fans or passive cooling do not usually provide temperature readings.
 See below for restrictions.
 
+T.Limit: The T.Limit sensor measures the current margin in degree Celsius to
+the maximum operating temperature. As such it is not an absolute temperature
+reading rather a relative measurement.
+
+Not all products support T.Limit sensor readings.
+
+When supported, nvidia-smi reports the current T.Limit temperature as a signed
+value that counts down. A T.Limit temperature of 0 C or lower indicates that
+the GPU may optimize its clock based on thermal conditions. Further, when the
+T.Limit sensor is supported, available temperature thresholds are also reported
+relative to T.Limit (see below) instead of absolute measurements.
+
 .TP 15
 .B "GPU"
 Core GPU temperature.
 For all discrete and S-class products.
-
+.TP 15
+.B "T.Limit Temp"
+Current margin in degrees Celsius from the maximum GPU operating temperature.
 .TP 15
 .B "Shutdown Temp"
 The temperature at which a GPU will shutdown.
 .TP 15
+.B "Shutdown T.Limit Temp"
+The T.Limit temperature below which a GPU may shutdown. Since shutdown can only
+triggered by the maximum GPU temperature it is possible for the current T.Limit
+to be more negative than this threshold.
+.TP 15
 .B "Slowdown Temp"
-The temperature at which a GPU will begin slowing itself down through HW, in order to cool.
+The temperature at which a GPU HW will begin optimizing clocks due to thermal
+conditions, in order to cool.
+.TP 15
+.B "Slowdown T.Limit Temp"
+The T.Limit temperature below which a GPU HW may optimize its clocks for
+thermal conditions. Since this clock adjustment can only triggered by the
+maximum GPU temperature it is possible for the current T.Limit to be more
+negative than this threshold.
 .TP 15
 .B "Max Operating Temp"
-The temperature at which a GPU will begin slowing itself down through SW, in order to cool.
+The temperature at which GPU SW will optimize its clock for thermal conditions.
+.TP 15
+.B "Max Operating T.Limit Temp"
+The T.Limit temperature below which GPU SW will optimize its clock for thermal
+conditions.
 
 .SS "Power Readings"
 Power readings help to shed light on the current power usage of the GPU, and the factors that affect that usage.
@@ -1181,7 +1222,7 @@ Reports default metrics for the devices selected by comma separated device list.
 .TP 15
     v - Power Violations (in %) and Thermal Violations (as a boolean flag)
 .TP 15
-    m - Frame Buffer and Bar1 memory usage (in MB)
+    m - Frame Buffer, Bar1 and Confidential Compute protected memory usage (in MB)
 .TP 15
     e - ECC (Number of aggregated single bit, double bit ecc errors) and PCIe Replay errors
 .TP 15
@@ -1255,7 +1296,7 @@ Runs in the background to monitor default metrics for the devices selected by co
 .TP 15
     v - Power Violations (in %) and Thermal Violations (as a boolean flag)
 .TP 15
-    m - Frame Buffer and Bar1 memory usage (in MB)
+    m - Frame Buffer, Bar1 and Confidential Compute protected memory usage (in MB)
 .TP 15
 	e - ECC (Number of aggregated single bit, double bit ecc errors) and PCIe Replay errors
 .TP 15
@@ -1322,7 +1363,7 @@ Fetches monitoring data from the compressed log file and allows the user to see 
 .TP 15
     v - Power Violations (in %) and Thermal Violations (as a boolean flag)
 .TP 15
-    m - Frame Buffer and Bar1 memory usage (in MB)
+    m - Frame Buffer, Bar1 and Confidential Compute protected memory usage (in MB)
 .TP 15
 	e - ECC (Number of aggregated single bit, double bit ecc errors) and PCIe Replay errors
 .TP 15
@@ -1384,7 +1425,7 @@ Reports statistics for all the processes running on the devices selected by comm
 .TP 15
     u - Utilization (SM, Memory, Encoder and Decoder Utilization for the process in %). Reports average utilization since last monitoring cycle.
 .TP 15
-    m - Frame Buffer usage (in MB). Reports instantaneous value for memory usage.
+    m - Frame Buffer and Confidential Compute protected memory usage (in MB). Reports instantaneous value for memory usage.
 
 .TP 15
 .B 4) Configure monitoring iterations
@@ -2120,6 +2161,15 @@ Query power hint with graphics clock at 1350MHz, memory clock at 1215MHz, temper
 .PP 1
 
   * On Linux platforms that configure NVIDIA GPUs as NUMA nodes, enabling persistence mode or resetting GPUs may print "Warning: persistence mode is disabled on device" if nvidia-persistenced is not running, or if nvidia-persistenced cannot access files in the NVIDIA driver's procfs directory for the device (/proc/driver/nvidia/gpus/<PCI Config Address>/). During GPU reset and driver reload, this directory will be deleted and recreated, and outstanding references to the deleted directory, such as mounts or shells, can prevent processes from accessing files in the new directory.
+.PP 1
+
+ 
+.PP 1
+
+  *  === Changes between nvidia-smi v535 Update and v545 ===
+.PP 1
+
+  * Added support to query the timestamp and duration of the latest flush of the BBX object to the inforom storage.
 .PP 1
 
  

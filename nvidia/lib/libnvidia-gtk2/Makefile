@@ -5,7 +5,7 @@ LOCALBASE=	/usr/local
 .endif
 
 LIB=		   nvidia-gtk2
-SHLIB_VERSION=	535.113.01
+SHLIB_VERSION=	535.129.03
 SHLIB_NAME=    lib${LIB}.so.${SHLIB_VERSION}
 SHLIB_NO_LINK= 1
 LIBDIR=		   ${LOCALBASE}/lib
